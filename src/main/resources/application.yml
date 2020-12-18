@@ -12,3 +12,12 @@ logging:
   level:
     # web 日志,当且仅当开发时才可使用 web 为 debug
     web: debug
+#
+# Spring 配置
+#
+spring:
+  #
+  # thymeleaf 配置
+  thymeleaf:
+    # 是否启用缓存
+    cache: false
