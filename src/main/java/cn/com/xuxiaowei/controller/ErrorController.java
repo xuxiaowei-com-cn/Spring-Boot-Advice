@@ -1,5 +1,6 @@
 package cn.com.xuxiaowei.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author xuxiaowei
  * @since 0.0.1
  */
+@Slf4j
 @Controller
 @RequestMapping("/error")
 public class ErrorController {
@@ -26,6 +28,15 @@ public class ErrorController {
      */
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        Object code = request.getAttribute("code");
+        Object msg = request.getAttribute("msg");
+
+        log.error("异常代码：{}", code);
+        log.error("异常消息：{}", msg);
+
+        model.addAttribute("code", code);
+        model.addAttribute("msg", msg);
 
         return "error/index";
     }

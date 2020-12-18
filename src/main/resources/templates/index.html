@@ -8,7 +8,26 @@
 
 <h2>欢迎使用 Spring Boot Advice</h2>
 
+<button onclick="ajaxException()">Ajax异常按钮</button>
+
 <!-- JQuery JS -->
 <script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    // 项目绝对位置
+    const ctxPath = /*[[@{/}]]*/ +'';
+
+    function ajaxException() {
+        $.ajax({
+            url: ctxPath + 'error/arithmetic.json',
+            data: {},
+            method: 'get',
+            timeout: 1000 * 10,
+        }).done(function (response) {
+            console.info('请求：', response);
+        }).fail(function (response) {
+            console.error('请求异常：', response);
+        });
+    }
+</script>
 </body>
 </html>
