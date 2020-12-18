@@ -25,7 +25,7 @@ public class ErrorRestController {
      * @param response 响应
      * @return 返回 结果
      */
-    @RequestMapping("/arithmetic")
+    @RequestMapping("/arithmetic.json")
     public Map<String, Object> arithmetic(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>(4);
         Map<String, Object> data = new HashMap<>(4);
